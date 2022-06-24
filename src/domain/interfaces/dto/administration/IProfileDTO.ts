@@ -1,0 +1,1 @@
+import { IFunctionalityDTO } from './IFunctionalityDTO';export interface IProfileDTO {  id: number;  description: string;  functionalities: IFunctionalityDTO[];  status: string;}

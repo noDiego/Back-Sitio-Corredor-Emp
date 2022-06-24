@@ -1,0 +1,61 @@
+trigger:
+  - master
+
+stages:
+  - stage: dev
+    displayName: 'compilando para vs-as-sp-corredor-empresa-des'
+    jobs:
+      - job: feature_provisioning
+        displayName: 'Feature env provisioning job'
+        pool:
+          vmImage: 'ubuntu-18.04'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '12.x'
+            displayName: 'Build Node.js service'         
+          - task: kiuwan-delivery-analysis-task@2
+            inputs:
+              kiuwanConnection: 'KiuwanVS'
+              projectnameselector: 'kiuwanapp'
+              kiuwanappname: 'Portal.CorredorEmpresa.VS'
+              changerequest: '$(Build.BuildNumber)'
+              analysisscope: 'partialDelivery'
+              failonnofiles: true
+              includeinsight: true
+              failonaudit: false
+              uploadsnippets: true
+              uploadfiles: false
+              skipclones: true
+              overridedotkiuwan: false
+              dbanalysis: false
+              deliverylabel: '$(branch)_VS-Front-Sitio-Corredor-Empresa'
+          - script: |
+              npm install
+            displayName: 'install node dependencies'
+          - script: |
+              npm run test
+            displayName: 'run tests'
+          - script: |
+              npm run build
+            displayName: 'build the service'
+          - task: PublishCodeCoverageResults@1
+            inputs:
+              codeCoverageTool: Cobertura
+              summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
+          - task: PublishTestResults@2
+            condition: succeededOrFailed()
+            inputs:
+              testRunner: JUnit
+              testResultsFiles: '**/junit.xml'
+          - task: ArchiveFiles@2
+            inputs:
+              rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+              includeRootFolder: false
+              archiveType: 'zip'
+              archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+              replaceExistingArchive: true
+          - task: PublishBuildArtifacts@1
+            inputs:
+              pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              artifactName: Backend

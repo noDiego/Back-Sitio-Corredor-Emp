@@ -1,0 +1,73 @@
+export enum PAYROLL_TYPE_OPTIONS {
+  INCLUSION_INSURED = 'Inclusión de asegurados',
+  EXCLUSION_INSURED = 'Exclusión de asegurados',
+  CHANGE_AFFILIATE = 'Cambio de filial',
+  CHANGE_PLAN = 'Cambio de plan',
+  VIRTUAL_SUBSCRIPTION = 'Suscripción Virtual',
+
+  INCLUSION_INSURED_INDIVIDUAL = 'Inclusión de asegurados Individual',
+  EXCLUSION_INSURED_INDIVIDUAL = 'Exclusión de asegurados Individual',
+  CHANGE_AFFILIATE_INDIVIDUAL = 'Cambio de filial Individual',
+  CHANGE_PLAN_INDIVIDUAL = 'Cambio de plan Individual',
+  VIRTUAL_SUBSCRIPTION_INDIVIDUAL = 'Suscripción Virtual Individual'
+}
+
+export enum PAYROLL_TYPE {
+  INCLUSION_INSURED = 'INCLUSION_INSURED',
+  EXCLUSION_INSURED = 'EXCLUSION_INSURED',
+  CHANGE_AFFILIATE = 'CHANGE_AFFILIATE',
+  CHANGE_PLAN = 'CHANGE_PLAN',
+  VIRTUAL_SUBSCRIPTION = 'VIRTUAL_SUBSCRIPTION',
+
+  INCLUSION_INSURED_INDIVIDUAL = 'INCLUSION_INSURED_INDIVIDUAL',
+  EXCLUSION_INSURED_INDIVIDUAL = 'EXCLUSION_INSURED_INDIVIDUAL',
+  CHANGE_AFFILIATE_INDIVIDUAL = 'CHANGE_AFFILIATE_INDIVIDUAL',
+  CHANGE_PLAN_INDIVIDUAL = 'CHANGE_PLAN_INDIVIDUAL',
+  VIRTUAL_SUBSCRIPTION_INDIVIDUAL = 'VIRTUAL_SUBSCRIPTION_INDIVIDUAL'
+}
+
+export enum EXCLUSION_TYPE_OPTIONS {
+  EXCLUDE_FROM_ALL = 'Excluir de todas las pólizas',
+  EXCLUDE_FROM_SINGLE = 'Excluir de una sola póliza'
+}
+
+export enum KINSHIP {
+  CONYUGE = 'CONYUGE',
+  TITULAR = 'TITULAR',
+  HIJO = 'HIJO',
+  PROGENITOR = 'PROGENITOR',
+  ABUELO = 'ABUELO'
+}
+
+export enum COLLECTION_DOCUMENT_TYPE {
+  COB = 'COB',
+  NOM = 'NOM',
+  AJU = 'AJU',
+  MOV = 'MOV',
+  AVI = 'AVI',
+  INV = 'INV' //Para Factura
+}
+
+export enum FILE_TYPE {
+  XLSX = 'XLSX',
+  PDF = 'PDF',
+  ZIP = 'ZIP'
+}
+
+export enum ADDRESS_TYPE {
+  COMERCIAL = 'COMERCIAL',
+  FACTURACION = 'FACTURACION',
+  MATRIZ = 'MATRIZ'
+}
+
+export enum ClientType {
+  BROKER,
+  COMPANY
+}
+
+export enum ProductCode {
+  VIDA = 1,
+  SALUD = 2,
+  ACCIDENTES = 3,
+  DEGRAVAMEN = 4
+}

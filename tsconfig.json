@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "rootDir": "./src",
+    "target": "es2017",
+    "lib": [
+      "es2017",
+      "esnext.asynciterable"
+    ],
+    
+    "typeRoots": [
+      "./src/types",
+      "./node_modules/@types"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "pretty": true,
+    "sourceMap": true,
+    "outDir": "./build",
+    "allowJs": true,
+    "noEmit": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "watch": false
+  },
+  "include": [
+    "./src/**/*", "./src/dummy/files/*",
+    "src/infrastructure/database/entities/payroll.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "./test/**/*",
+    "**/*.spec.ts"
+  ]
+}
